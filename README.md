@@ -10,8 +10,14 @@ Concat multiple files into one.
 [![Code Coverage][my_codeclimate_coverage_badge_url]][my_codeclimate_url]
 [![npm version][my_npm_budge_url]][my_npm_url]
 
+Usage
+-----
 
+Options
+-------
 
+| Key | Description |
+| --- | ----------- | 
 
 Installation
 -----
