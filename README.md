@@ -36,7 +36,10 @@ fileconcat(src, dest, function (err){
 fileconcat(src, dest, {
     unique: true,
     mkdirp: true,
-    mode: '444'
+    mode: '444',
+    beforeEach: function (context) {
+        return "\n//======= " + context.src + " ==========\n";
+    }
 }, function (err){
     /*...*/
 });
@@ -46,11 +49,13 @@ fileconcat(src, dest, {
 Options
 -------
 
-| Key | Description |
-| --- | ----------- |
-| unique | Reject duplicate files. Use full when you pass multiple glob patterns. |
-| mkdirp | Make parent directories if needed. |
-| mode | File permission |
+| Key | Type | Description |
+| --- | ---- | ----------- |
+| unique | Boolean | Reject duplicate files. Use full when you pass multiple glob patterns. |
+| mkdirp | Boolean | Make parent directories if needed. |
+| mode | String | File permission |
+| beforeEach | String#124;Function | String to append before each content. |
+| afterEach | String#124;Function to append after each content. |
 
 Installation
 -----

@@ -38,7 +38,10 @@ exports['Do concat with options.'] = function (test) {
         ], dest, {
             unique: true,
             mkdirp: true,
-            mode: '444'
+            mode: '444',
+            beforeEach: function (context) {
+                return "//======= " + context.src + " ==========\n\n\n";
+            }
         },
         function (err) {
             test.ifError(err);

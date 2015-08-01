@@ -5,8 +5,10 @@
  * @param {string} dest - Destination file name.
  * @param {object} [options] - Optional settings.
  * @param {boolean} options.unique - Reject duplicate files.
- * @param {boolean} options.mkdirp - Create parent directories if neede.
+ * @param {boolean} options.mkdirp - Create parent directories if needed.
  * @param {string} options.mode - File permission string.
+ * @param {string|function} options.beforeEach - String to append before each content.
+ * @param {string|function} options.afterEach - String to append after each content.
  * @param {function} callback - Callback when done.
  */
 
@@ -71,7 +73,10 @@ function fileconcat(src, dest, options, callback) {
                         src = _unique(src);
                     }
                     async.eachSeries(src, function (src, callback) {
-                        _append(src, tmp, callback);
+                        _append(src, tmp, {
+                            before: options.beforeEach,
+                            after: options.afterEach
+                        }, callback);
                     }, callback);
                 }
             ], callback);
@@ -100,13 +105,36 @@ function _copy(src, dest, options, callback) {
 }
 
 
-function _append(src, dest, callback) {
+function _append(src, dest, options, callback) {
+    function _marker(marker) {
+        if (!marker) {
+            return null;
+        }
+        if (typeof(marker) === 'function') {
+            return marker({
+                src: path.relative(process.cwd(), src),
+                dest: path.relative(process.cwd(), dest)
+            });
+        }
+        return marker;
+    }
+
     async.waterfall([
         function (callback) {
             fs.readFile(src, callback);
         },
         function (content, callback) {
-            fs.appendFile(dest, content, callback);
+            async.eachSeries([
+                _marker(options.before),
+                content,
+                _marker(options.after)
+            ], function (content, callback) {
+                if (content) {
+                    fs.appendFile(dest, content, callback);
+                } else {
+                    callback(null);
+                }
+            }, callback);
         }
     ], callback);
 }
