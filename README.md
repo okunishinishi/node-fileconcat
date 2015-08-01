@@ -15,7 +15,7 @@ Usage
 
 **.fileconcat(src, dest[,options], callback)**
 
-Concat multple src files into one dest file.
+Concat multiple src files into one dest file.
 
 ```javascript
 
