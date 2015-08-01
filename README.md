@@ -15,8 +15,6 @@ Usage
 
 **fileconcat(src, dest, callback)**
 
-Concat multiple src files into one dest file.
-
 ```javascript
 var fileconcat = require('fileconcat');
 
@@ -25,7 +23,7 @@ var src = [
     'src/javascripts/*.js'
 ], dest = 'dist/javascripts/all.js';
     
-// Concat files.
+// Concat files into one.
 fileconcat(src, dest, function (err){
     /*...*/
 });
@@ -33,9 +31,8 @@ fileconcat(src, dest, function (err){
 
 **fileconcat(src, dest, options, callback)**
 
-With some options:
-
 ```javascript
+// Concat files into one with options.
 fileconcat(src, dest, {
     unique: true,
     mkdirp: true,
