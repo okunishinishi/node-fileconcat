@@ -13,11 +13,32 @@ Concat multiple files into one.
 Usage
 -----
 
+**.fileconcat(src, dest[,options], callback)**
+
+Concat multple src files into one dest file.
+
+```javascript
+
+var fileconcat = require('fileconcat');
+
+fileconcat([
+    'src/javascripts/lib/*.js',
+    'src/javascripts/*.js'
+], 'dist/javascripts', function (err){
+    /*...*/
+});
+```
+
+
+
 Options
 -------
 
 | Key | Description |
-| --- | ----------- | 
+| --- | ----------- |
+| unique | Reject duplicate files. Use full when you pass multiple glob patterns. |
+| mkdirp | Make parent directories if needed. |
+| mode | File permission |
 
 Installation
 -----

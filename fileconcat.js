@@ -53,7 +53,6 @@ function fileconcat(src, dest, options, callback) {
                         if (isDir) {
                             callback(new Error('Destination already exists as a directory.'));
                         } else {
-                            console.log(dest);
                             fs.chmod(dest, '644', callback);
                         }
                     });
