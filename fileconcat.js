@@ -64,16 +64,17 @@ function fileconcat(src, dest, options, callback) {
             }, callback);
         },
         function generateTmp(callback) {
+            var pattern = [].concat(src || []);
             async.waterfall([
                 function (callback) {
-                    async.concatSeries([].concat(src), glob, callback);
+                    async.concatSeries(pattern, glob, callback);
                 },
                 function (src, callback) {
                     if (!!options.unique) {
                         src = _unique(src);
                     }
                     if (src.length === 0) {
-                        callback(new Error('Source file not found.'));
+                        callback(new Error('Source file not found: ' + pattern.join('|')));
                         return;
                     }
                     async.eachSeries(src, function (src, callback) {
