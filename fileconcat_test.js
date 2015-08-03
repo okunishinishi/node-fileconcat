@@ -50,3 +50,11 @@ exports['Do concat with options.'] = function (test) {
         }
     )
 };
+
+exports['Do concat with no src.'] = function (test) {
+    var dest = tmpDir + '/testing-concat-file3.txt';
+    fileconcat([], dest, function (err) {
+        test.ok(!!err);
+        test.done();
+    });
+};

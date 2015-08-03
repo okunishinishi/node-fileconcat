@@ -72,6 +72,10 @@ function fileconcat(src, dest, options, callback) {
                     if (!!options.unique) {
                         src = _unique(src);
                     }
+                    if (src.length === 0) {
+                        callback(new Error('Source file not found.'));
+                        return;
+                    }
                     async.eachSeries(src, function (src, callback) {
                         _append(src, tmp, {
                             before: options.beforeEach,
