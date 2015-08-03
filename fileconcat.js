@@ -74,7 +74,7 @@ function fileconcat(src, dest, options, callback) {
                         src = _unique(src);
                     }
                     if (src.length === 0) {
-                        callback(new Error('Source file not found: ' + pattern.join('|')));
+                        callback(new Error('Source file not found: ' + pattern.join(',')));
                         return;
                     }
                     async.eachSeries(src, function (src, callback) {
@@ -151,7 +151,7 @@ function _unique(array) {
 }
 
 function _concat(a, b) {
-    return a.concat(b);
+    return [].concat(a).concat(b);
 }
 
 function _isDir(filename, callback) {

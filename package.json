@@ -1,6 +1,6 @@
 {
   "name": "fileconcat",
-  "version": "1.0.6",
+  "version": "1.0.7",
   "description": "Concat multiple files into one.",
   "main": "fileconcat.js",
   "scripts": {
