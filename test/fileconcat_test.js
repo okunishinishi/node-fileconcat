@@ -5,18 +5,18 @@
 
 "use strict";
 
-var fileconcat = require('./fileconcat'),
+var fileconcat = require('../lib/fileconcat'),
     fs = require('fs'),
     path = require('path');
 
-var tmpDir = path.resolve(__dirname, 'tmp');
+var tmpDir = path.resolve(__dirname, '/../tmp');
 
 
 exports['Do concat files.'] = function (test) {
     var dest = tmpDir + '/testing-concat-file.txt';
     fileconcat([
             __filename,
-            require.resolve('./fileconcat')
+            require.resolve('../lib/fileconcat')
         ], dest, {
             mkdirp: true
         },
@@ -33,7 +33,7 @@ exports['Do concat with options.'] = function (test) {
     var dest = tmpDir + '/testing-concat-file2.txt';
     fileconcat([
             __filename,
-            require.resolve('./fileconcat'),
+            require.resolve('../lib/fileconcat'),
             __filename
         ], dest, {
             unique: true,

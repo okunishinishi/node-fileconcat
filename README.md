@@ -8,6 +8,7 @@ fileconcat
 [![Code Climate][bd_codeclimate_shield_url]][bd_codeclimate_url]
 [![Code Coverage][bd_codeclimate_coverage_shield_url]][bd_codeclimate_url]
 [![npm Version][bd_npm_shield_url]][bd_npm_url]
+[![bower version][bd_bower_badge_url]][bd_repo_url]
 
 [bd_repo_url]: https://github.com/okunishinishi/node-fileconcat
 [bd_travis_url]: http://travis-ci.org/okunishinishi/node-fileconcat
@@ -20,6 +21,7 @@ fileconcat
 [bd_gemnasium_shield_url]: https://gemnasium.com/okunishinishi/node-fileconcat.svg
 [bd_npm_url]: http://www.npmjs.org/package/fileconcat
 [bd_npm_shield_url]: http://img.shields.io/npm/v/fileconcat.svg?style=flat
+[bd_bower_badge_url]: https://img.shields.io/bower/v/fileconcat.svg?style=flat
 
 <!-- Badge End -->
 
@@ -33,9 +35,13 @@ Concat multiple files into one.
 
 
 
+
 <!-- Sections Start -->
 <a name="sections"></a>
 
+<!-- Section from "doc/readme/01.Installation.md.hbs" Start -->
+
+<a name="section-doc-readme-01-installation-md"></a>
 Installation
 -----
 
@@ -43,6 +49,11 @@ Installation
 npm install fileconcat --save
 ```
 
+<!-- Section from "doc/readme/01.Installation.md.hbs" End -->
+
+<!-- Section from "doc/readme/02.Usage.md.hbs" Start -->
+
+<a name="section-doc-readme-02-usage-md"></a>
 Usage
 ----
 
@@ -77,6 +88,11 @@ fileconcat(src, dest, {
     /*...*/
 });
 ```
+<!-- Section from "doc/readme/02.Usage.md.hbs" End -->
+
+<!-- Section from "doc/readme/03.Options.md.hbs" Start -->
+
+<a name="section-doc-readme-03-options-md"></a>
 Options
 -------
 
@@ -87,6 +103,8 @@ Options
 | mode | String | File permission |
 | beforeEach | String#124;Function | String to append before each content. |
 | afterEach | String#124;Function to append after each content. |
+
+<!-- Section from "doc/readme/03.Options.md.hbs" End -->
 
 
 <!-- Sections Start -->

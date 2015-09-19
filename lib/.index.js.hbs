@@ -1,0 +1,17 @@
+/**
+ * {{pkg.description}}
+ * @module {{pkg.name}}
+ * @version {{pkg.version}}
+ */
+
+"use strict";
+
+var fileconcat = require('./fileconcat'),
+    pkg = require('../package.json');
+
+var lib = fileconcat.bind(this);
+
+lib.fileconcat = fileconcat;
+lib.version = pkg;
+
+module.exports = lib;
