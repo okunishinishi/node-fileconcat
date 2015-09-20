@@ -43,9 +43,10 @@ exports['Do concat with options.'] = function (test) {
                 return "//======= " + context.src + " ==========\n\n\n";
             }
         },
-        function (err) {
+        function (err, result) {
             test.ifError(err);
             test.ok(fs.existsSync(dest));
+            console.log('result', result);
             test.done();
         }
     )
