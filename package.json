@@ -31,15 +31,15 @@
     "mkdirp": "^0.5.1"
   },
   "devDependencies": {
-    "ape-covering": "^3.0.1",
-    "ape-releasing": "^3.0.8",
-    "ape-reporting": "^3.0.1",
-    "ape-tasking": "^3.1.2",
-    "ape-testing": "^3.0.1",
-    "ape-tmpl": "^5.0.1",
-    "ape-updating": "^3.0.2",
-    "coz": "^5.1.5",
-    "coz-tmpl": "^1.2.0"
+    "ape-covering": "*",
+    "ape-releasing": "*",
+    "ape-reporting": "*",
+    "ape-tasking": "*",
+    "ape-testing": "*",
+    "ape-tmpl": "*",
+    "ape-updating": "*",
+    "coz": "*",
+    "coz-tmpl": "*"
   },
   "engines": {
     "node": ">=6",

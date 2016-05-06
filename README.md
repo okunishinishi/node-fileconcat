@@ -44,6 +44,83 @@ Concat multiple files into one.
 <!-- Sections Start -->
 <a name="sections"></a>
 
+<!-- Section from "doc/guides/01.Installation.md.hbs" Start -->
+
+<a name="section-doc-guides-01-installation-md"></a>
+Installation
+-----
+
+```bash
+npm install fileconcat --save
+```
+
+
+<!-- Section from "doc/guides/01.Installation.md.hbs" End -->
+
+<!-- Section from "doc/guides/02.Usage.md.hbs" Start -->
+
+<a name="section-doc-guides-02-usage-md"></a>
+Usage
+----
+
+**fileconcat(src, dest, callback)**
+
+```javascript
+'use strict'
+
+const fileconcat = require('fileconcat')
+
+let src = [
+  'src/javascripts/lib/*.js',
+  'src/javascripts/*.js'
+]
+let dest = 'dist/javascripts/all.js'
+
+// Concat files into one.
+fileconcat(src, dest).then(() => {
+  /* ... */
+})
+
+```
+
+**fileconcat(src, dest, options, callback)**
+
+```javascript
+'use strict'
+
+// Concat files into one with options.
+fileconcat(src, dest, {
+  unique: true,
+  mkdirp: true,
+  mode: '444',
+  beforeEach (context) {
+    return '\n//======= ' + context.src + ' ==========\n'
+  }
+}).then(() => {
+  /* ... */
+})
+
+```
+
+<!-- Section from "doc/guides/02.Usage.md.hbs" End -->
+
+<!-- Section from "doc/guides/03.Options.md.hbs" Start -->
+
+<a name="section-doc-guides-03-options-md"></a>
+Options
+-------
+
+| Key | Type | Description |
+| --- | ---- | ----------- |
+| unique | Boolean | Reject duplicate files. Use full when you pass multiple glob patterns. |
+| mkdirp | Boolean | Make parent directories if needed. |
+| mode | String | File permission |
+| beforeEach | String#124;Function | String to append before each content. |
+| afterEach | String#124;Function to append after each content. |
+
+
+<!-- Section from "doc/guides/03.Options.md.hbs" End -->
+
 
 <!-- Sections Start -->
 
