@@ -1,11 +1,14 @@
-var fileconcat = require('fileconcat');
+'use strict'
 
-var src = [
-    'src/javascripts/lib/*.js',
-    'src/javascripts/*.js'
-], dest = 'dist/javascripts/all.js';
+const fileconcat = require('fileconcat')
+
+let src = [
+  'src/javascripts/lib/*.js',
+  'src/javascripts/*.js'
+]
+let dest = 'dist/javascripts/all.js'
 
 // Concat files into one.
-fileconcat(src, dest, function (err){
-    /*...*/
-});
+fileconcat(src, dest).then(() => {
+  /* ... */
+})
